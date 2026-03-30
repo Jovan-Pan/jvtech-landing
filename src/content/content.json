@@ -1,0 +1,125 @@
+{
+  "company": {
+    "name": "JVTech",
+    "tagline": {
+      "id": "Mentransformasi Bisnis Melalui Teknologi",
+      "en": "Transforming Business Through Technology",
+      "zh": "通过技术改变商业"
+    },
+    "description": {
+      "id": "Solusi IT Consulting terdepan untuk transformasi digital perusahaan Anda. Kami menghadirkan inovasi teknologi yang mengubah cara bisnis Anda berkembang.",
+      "en": "Leading IT Consulting solutions for your digital transformation. We deliver technology innovations that transform how your business grows.",
+      "zh": "领先的IT咨询解决方案，助力您的数字化转型。我们提供技术创新，改变您的业务增长方式。"
+    },
+    "address": "Kezia Residence Blok E No 9",
+    "email": "contact@jvtech.com",
+    "phone": "+62xxx-xxxx-xxxx",
+    "social": {
+      "linkedin": "#",
+      "twitter": "#",
+      "github": "#"
+    }
+  },
+  "hero": {
+    "title": {
+      "id": "Masa Depan Bisnis Anda",
+      "en": "The Future of Your Business",
+      "zh": "您的商业未来"
+    },
+    "subtitle": {
+      "id": "Kami membangun solusi teknologi yang cerdas, skalabel, dan aman untuk mendorong pertumbuhan bisnis Anda ke level berikutnya.",
+      "en": "We build smart, scalable, and secure technology solutions to drive your business growth to the next level.",
+      "zh": "我们构建智能、可扩展且安全的技术解决方案，推动您的业务增长到新高度。"
+    },
+    "cta": {
+      "id": "Mulai Konsultasi",
+      "en": "Start Consultation",
+      "zh": "开始咨询"
+    }
+  },
+  "stats": [
+    { "value": 150, "suffix": "+", "label": { "id": "Proyek Selesai", "en": "Projects Completed", "zh": "已完成项目" } },
+    { "value": 50, "suffix": "+", "label": { "id": "Klien Korporat", "en": "Corporate Clients", "zh": "企业客户" } },
+    { "value": 99.9, "suffix": "%", "label": { "id": "Waktu Aktif", "en": "Uptime", "zh": "正常运行时间" } },
+    { "value": 24, "suffix": "/7", "label": { "id": "Dukungan Teknis", "en": "Technical Support", "zh": "技术支持" } }
+  ],
+  "services": [
+    {
+      "title": { "id": "Cloud Infrastructure", "en": "Cloud Infrastructure", "zh": "云基础设施" },
+      "desc": { "id": "Arsitektur cloud yang skalabel dan aman untuk bisnis Anda.", "en": "Scalable and secure cloud architecture for your business.", "zh": "为您的业务提供可扩展且安全的云架构。" },
+      "icon": "cloud"
+    },
+    {
+      "title": { "id": "Cyber Security", "en": "Cyber Security", "zh": "网络安全" },
+      "desc": { "id": "Lindungi aset digital Anda dengan solusi keamanan terkini.", "en": "Protect your digital assets with cutting-edge security solutions.", "zh": "用尖端安全解决方案保护您的数字资产。" },
+      "icon": "shield"
+    },
+    {
+      "title": { "id": "Data Analytics", "en": "Data Analytics", "zh": "数据分析" },
+      "desc": { "id": "Ubah data menjadi wawasan bisnis yang berharga.", "en": "Transform data into valuable business insights.", "zh": "将数据转化为有价值的商业洞察。" },
+      "icon": "chart"
+    },
+    {
+      "title": { "id": "AI & Automation", "en": "AI & Automation", "zh": "人工智能与自动化" },
+      "desc": { "id": "Otomasi cerdas untuk efisiensi operasional maksimal.", "en": "Intelligent automation for maximum operational efficiency.", "zh": "智能自动化实现最高运营效率。" },
+      "icon": "cpu"
+    },
+    {
+      "title": { "id": "Web Development", "en": "Web Development", "zh": "网站开发" },
+      "desc": { "id": "Website dan aplikasi web performa tinggi yang modern.", "en": "Modern, high-performance websites and web applications.", "zh": "现代化高性能网站和网络应用。" },
+      "icon": "code"
+    },
+    {
+      "title": { "id": "IT Strategy", "en": "IT Strategy", "zh": "IT战略" },
+      "desc": { "id": "Perencanaan strategis TI untuk pertumbuhan jangka panjang.", "en": "Strategic IT planning for long-term growth.", "zh": "面向长期增长的战略IT规划。" },
+      "icon": "compass"
+    }
+  ],
+  "about": {
+    "title": {
+      "id": "Siapa Kami",
+      "en": "Who We Are",
+      "zh": "我们是谁"
+    },
+    "desc": {
+      "id": "JVTech adalah perusahaan konsultan IT yang berfokus pada transformasi digital. Dengan pengalaman bertahun-tahun, kami membantu perusahaan dari berbagai skala untuk mengadopsi teknologi terbaru dan mencapai tujuan bisnis mereka.",
+      "en": "JVTech is an IT consulting company focused on digital transformation. With years of experience, we help companies of all sizes adopt the latest technology and achieve their business goals.",
+      "zh": "JVTech是一家专注于数字化转型的IT咨询公司。凭借多年经验，我们帮助各种规模的公司采用最新技术并实现其业务目标。"
+    }
+  },
+  "partners": [
+    "AWS", "Google Cloud", "Microsoft", "Oracle", "IBM", "SAP"
+  ],
+  "testimonials": [
+    {
+      "quote": {
+        "id": "JVTech membantu kami meningkatkan efisiensi operasional hingga 40%. Luar biasa!",
+        "en": "JVTech helped us increase operational efficiency by 40%. Incredible!",
+        "zh": "JVTech帮助我们将运营效率提高了40%。令人难以置信！"
+      },
+      "author": "CEO, Tech Corp",
+      "image": "/images/testimonial-1.jpg"
+    },
+    {
+      "quote": {
+        "id": "Solusi cloud mereka menghemat biaya infrastruktur kami hingga 30%.",
+        "en": "Their cloud solution saved us 30% on infrastructure costs.",
+        "zh": "他们的云解决方案为我们节省了30%的基础设施成本。"
+      },
+      "author": "CTO, Finance Inc",
+      "image": "/images/testimonial-2.jpg"
+    }
+  ],
+  "contact": {
+    "title": {
+      "id": "Hubungi Kami",
+      "en": "Contact Us",
+      "zh": "联系我们"
+    },
+    "subtitle": {
+      "id": "Siap mentransformasi bisnis Anda? Mari bicarakan kebutuhan Anda.",
+      "en": "Ready to transform your business? Let's discuss your needs.",
+      "zh": "准备好改变您的业务了吗？让我们讨论您的需求。"
+    }
+  }
+}
