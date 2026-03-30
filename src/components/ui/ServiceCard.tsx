@@ -37,7 +37,7 @@ export default function ServiceCard({ title, desc, icon }: Service) {
           </div>
           <h3 className="text-xl font-bold text-white mb-3 font-sora">{title}</h3>
           <p className="text-gray-300 text-sm leading-relaxed">
-            Konsultasi gratis untuk solusi {title.toLowerCase()} yang tepat untuk bisnis Anda.
+            Konsultasi gratis untuk solusi {title.toLowerCase()} yang tepat untuk bisnis Industri Anda.
           </p>
           <button className="mt-6 px-6 py-2 bg-[#00D4FF] text-[#0a192f] font-semibold rounded-full hover:bg-white transition-colors duration-300">
             Pelajari
