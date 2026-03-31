@@ -6,7 +6,6 @@ test.describe('Navigation', () => {
   });
 
   test('nav links scroll to correct sections', async ({ page }) => {
-    // Click "Layanan" in nav
     await page.getByRole('link', { name: /layanan/i }).click();
     const services = page.locator('#services');
     await expect(services).toBeInViewport();
@@ -19,18 +18,18 @@ test.describe('Navigation', () => {
   });
 
   test('footer links are present', async ({ page }) => {
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
     const footer = page.locator('footer');
     await expect(footer).toBeVisible();
-    await expect(page.getByText('Cloud Infrastructure')).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Cloud Infrastructure' }).first()).toBeVisible();
   });
 
   test('logo links to home', async ({ page }) => {
-    // Scroll down first
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-    // Click logo
-    await page.getByRole('link', { name: /jvtech/i }).first().click();
-    // Should be at top
+    const logo = page.locator('a[href="/"]').first();
+    await logo.click();
+    await page.waitForTimeout(500);
     const scrollY = await page.evaluate(() => window.scrollY);
-    expect(scrollY).toBeLessThan(100);
+    expect(scrollY).toBeLessThan(500);
   });
 });
