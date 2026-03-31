@@ -1,0 +1,38 @@
+name: PR Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  review:
+    name: Automated QA Review
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Lint Check
+        run: npx eslint . --max-warnings 0 --format json > lint-results.json || true
+
+      - name: Unit Tests with Coverage
+        run: npx vitest run --coverage --reporter=json --outputFile=test-results.json
+
+      - name: Coverage Summary
+        run: |
+          echo "## 📊 Coverage Report" >> $GITHUB_STEP_SUMMARY
+          cat coverage/coverage-summary.txt >> $GITHUB_STEP_SUMMARY || echo "Coverage report not found" >> $GITHUB_STEP_SUMMARY
+
+      - name: Size Check
+        run: |
+          echo "## 📦 Build Size" >> $GITHUB_STEP_SUMMARY
+          npm run build 2>&1 | tee build-output.txt
+          grep -oP 'λ .*? (\d+\.?\d*) (\w+)' build-output.txt >> $GITHUB_STEP_SUMMARY || true

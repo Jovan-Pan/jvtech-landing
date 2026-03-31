@@ -1,61 +1,61 @@
-# JVTech Landing Page
+# jvtech-landing
 
-> Premium Enterprise Landing Page with 3D Animations
+Landing page untuk JVTech — tech company berbasis di Indonesia.
 
-## ✨ Features
+## Tech Stack
 
-- 🚀 **Next.js 14** (App Router)
-- 🎨 **Tailwind CSS** (Custom Theme)
-- 🌐 **Multi-Language** (ID/EN/ZH)
-- 🧊 **3D Animations** (React Three Fiber)
-- 💎 **Enterprise UI/UX**
-- 📱 **Fully Responsive**
-- ⚡ **Vercel Ready**
+- Next.js 16 (Turbopack)
+- React 19
+- TypeScript 5
+- Tailwind CSS 4
+- Zustand (state management)
+- React Three Fiber (3D graphics)
+- Framer Motion (animations)
 
-## 🛠 Tech Stack
-
-- **Framework**: Next.js 14
-- **Styling**: Tailwind CSS
-- **3D**: Three.js, React Three Fiber, Drei
-- **State**: Zustand
-- **Icons**: Lucide React
-- **Font**: Sora, DM Sans
-
-## 🚀 Getting Started
+## Development
 
 ```bash
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
-
-# Build for production
-npm run build
+npm run dev          # Start dev server
+npm run build        # Production build
+npm run lint         # ESLint check
 ```
 
-## 📂 Project Structure
+## Testing
 
-```
-src/
-├── app/             # Next.js App Router
-├── components/
-│   ├── 3d/          # 3D Scenes
-│   └── ui/          # UI Components
-├── content/         # JSON Config (Editable)
-│   ├── content.json # Site Content
-│   └── ui.json      # UI Labels
-└── store/           # State Management
+```bash
+npm run test          # Unit tests (Vitest)
+npm run test:watch    # Unit tests (watch mode)
+npm run test:coverage # Unit tests + coverage report
+npm run test:e2e      # E2E tests (Playwright)
 ```
 
-## 🔧 Maintenance
+### Coverage Targets
 
-### Update Content
-Edit `src/content/content.json` to update text, services, stats, etc.
+| Metric     | Target |
+|------------|--------|
+| Lines      | ≥70%   |
+| Statements | ≥70%   |
+| Functions  | ≥70%   |
+| Branches   | ≥30%   |
 
-### Update UI Labels
-Edit `src/content/ui.json` to update navigation, buttons, labels.
+## Quality Standards
 
-## 📝 License
+- Zero ESLint errors/warnings (strict mode)
+- Unit tests passing (100%)
+- Coverage thresholds enforced via vitest config
+- E2E tests across Chrome, Firefox, Safari, Mobile
+- Accessibility audit (WCAG 2.1 basics)
+- Performance budgets (<5s load, 0 console errors)
 
-Private - JVTech © 2026
+## CI/CD
+
+GitHub Actions pipeline runs on every push/PR:
+1. Lint (ESLint strict)
+2. Unit Tests + Coverage
+3. E2E Tests (Playwright + Chromium)
+4. Build
+5. Quality Gate
+
+## Internationalization
+
+Supported locales: `id` (default), `en`, `zh`
