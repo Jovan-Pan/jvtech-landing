@@ -6,7 +6,7 @@ test.describe('Navigation', () => {
   });
 
   test('nav links are clickable', async ({ page }) => {
-    const link = page.getByRole('link', { name: /layanan/i });
+    const link = page.getByRole('navigation').getByRole('link', { name: 'Layanan' });
     await expect(link).toBeVisible();
     await link.click();
     await page.waitForTimeout(1000);
