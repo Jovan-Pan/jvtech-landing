@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Navigation', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
   });
 
   test('nav links scroll to correct sections', async ({ page }) => {
