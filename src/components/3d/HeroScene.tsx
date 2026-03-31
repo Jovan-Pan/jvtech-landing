@@ -10,10 +10,16 @@ function ParticleField() {
   
   const particles = useMemo(() => {
     const positions = new Float32Array(5000 * 3);
+    // Seeded pseudo-random to satisfy react-hooks/purity rule
+    let seed = 42;
+    const random = () => {
+      seed = (seed * 16807 + 0) % 2147483647;
+      return seed / 2147483647;
+    };
     for (let i = 0; i < 5000; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 10;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 10;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
+      positions[i * 3] = (random() - 0.5) * 10;
+      positions[i * 3 + 1] = (random() - 0.5) * 10;
+      positions[i * 3 + 2] = (random() - 0.5) * 10;
     }
     return positions;
   }, []);

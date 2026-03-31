@@ -33,7 +33,6 @@ export default function Home() {
 
   const hero = content.hero;
   const about = content.about;
-  const contact = content.contact;
 
   return (
     <div className="overflow-hidden">
