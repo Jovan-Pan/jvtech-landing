@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Navbar from '@/components/ui/Navbar';
 
 // Mock lucide-react
@@ -9,15 +9,23 @@ vi.mock('lucide-react', () => ({
   Globe: () => <div data-testid="globe-icon" />,
 }));
 
-// Mock zustand store — return the full object, not a selector function
+// Mock zustand store
+const mockSetLocale = vi.fn();
+let mockLocale = 'id';
+
 vi.mock('@/store/useAppStore', () => ({
-  useAppStore: vi.fn(() => ({
-    locale: 'id',
-    setLocale: vi.fn(),
-  })),
+  useAppStore: () => ({
+    locale: mockLocale,
+    setLocale: mockSetLocale,
+  }),
 }));
 
 describe('Navbar', () => {
+  beforeEach(() => {
+    mockLocale = 'id';
+    mockSetLocale.mockClear();
+  });
+
   it('renders the JVTech logo', () => {
     render(<Navbar />);
     expect(screen.getByText('JV')).toBeInTheDocument();
@@ -29,6 +37,7 @@ describe('Navbar', () => {
     expect(screen.getByText('Beranda')).toBeInTheDocument();
     expect(screen.getByText('Layanan')).toBeInTheDocument();
     expect(screen.getByText('Tentang')).toBeInTheDocument();
+    expect(screen.getByText('Kontak')).toBeInTheDocument();
   });
 
   it('renders CTA button', () => {
@@ -42,5 +51,37 @@ describe('Navbar', () => {
     expect(heroLink).toHaveAttribute('href', '#hero');
     const servicesLink = screen.getByRole('link', { name: /layanan/i });
     expect(servicesLink).toHaveAttribute('href', '#services');
+  });
+
+  it('toggles mobile menu on button click', () => {
+    render(<Navbar />);
+    const menuButton = screen.getByTestId('menu-icon').closest('button')!;
+    
+    // Mobile menu not visible initially
+    expect(screen.queryByText(/Konsultasi/)).toBeInTheDocument();
+    
+    // Open mobile menu
+    fireEvent.click(menuButton);
+    // Menu icon changes to X when open
+    expect(screen.getByTestId('close-icon')).toBeInTheDocument();
+  });
+
+  it('toggles language dropdown', () => {
+    render(<Navbar />);
+    const langButton = screen.getByText('ID').closest('button')!;
+    
+    fireEvent.click(langButton);
+    expect(screen.getByText('🇺🇸 EN')).toBeInTheDocument();
+    expect(screen.getByText('🇨🇳 ZH')).toBeInTheDocument();
+  });
+
+  it('calls setLocale when language is selected', () => {
+    render(<Navbar />);
+    const langButton = screen.getByText('ID').closest('button')!;
+    
+    fireEvent.click(langButton);
+    fireEvent.click(screen.getByText('🇺🇸 EN'));
+    
+    expect(mockSetLocale).toHaveBeenCalledWith('en');
   });
 });

@@ -32,7 +32,6 @@ describe('StatsCounter', () => {
 
   it('renders correct number of stat items', () => {
     render(<StatsCounter stats={mockStats} />);
-    // Each stat has a label
     expect(screen.getByText('Proyek Selesai')).toBeInTheDocument();
     expect(screen.getByText('Klien Aktif')).toBeInTheDocument();
   });
@@ -44,8 +43,22 @@ describe('StatsCounter', () => {
 
   it('handles empty stats array', () => {
     render(<StatsCounter stats={[]} />);
-    // Should render the grid container
     const grid = document.querySelector('.grid');
     expect(grid).toBeInTheDocument();
+  });
+
+  it('renders stat suffix values', () => {
+    render(<StatsCounter stats={mockStats} />);
+    // Counter starts at 0, suffixes appended — use getByText with spans
+    const suffixes = document.querySelectorAll('span');
+    const texts = Array.from(suffixes).map(el => el.textContent);
+    expect(texts.some(t => t?.includes('+'))).toBe(true);
+    expect(texts.some(t => t?.includes('/7'))).toBe(true);
+  });
+
+  it('renders gradient dividers between stats', () => {
+    render(<StatsCounter stats={mockStats} />);
+    const dividers = document.querySelectorAll('.bg-gradient-to-b');
+    expect(dividers.length).toBeGreaterThan(0);
   });
 });
